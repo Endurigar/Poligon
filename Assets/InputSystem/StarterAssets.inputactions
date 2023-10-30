@@ -42,21 +42,30 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Restart",
+                    "name": "Shoot",
                     "type": "Button",
-                    "id": "f88b8ec9-b0b7-44b3-92a3-deafe7f6880c",
+                    "id": "3456a57d-e855-47b3-a686-50b725a41fbb",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Shoot",
+                    "name": "Reload",
                     "type": "Button",
-                    "id": "6cab38f3-6f86-4a39-baa9-3a494688aa89",
+                    "id": "3331a736-5c60-4ece-ab67-4f02cf8c96d5",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=2)",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "a876107f-28fb-46c0-9438-1c40caffbe9b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -64,7 +73,7 @@
                 {
                     "name": "WASD",
                     "id": "b7594ddb-26c9-4ba2-bd5a-901468929edc",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -239,23 +248,62 @@
                 },
                 {
                     "name": "",
-                    "id": "c2cdd4aa-fddb-4d20-b45c-4145086f67c6",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
+                    "id": "7529668f-0a7b-412d-af68-8c16428659c9",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "",
-                    "action": "Restart",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "3801bd4e-75e2-4192-bacb-012e68b4b1c4",
-                    "path": "<Mouse>/leftButton",
+                    "id": "fb8a986d-14de-4ca0-9aae-45c65cd096d2",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Shoot",
+                    "groups": "",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b8a2eeab-4d2a-4f6f-8fb4-107571c35b36",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "f2f2e5f7-bfdd-404f-83e7-8a351b91ab7c",
+            "actions": [
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "85438094-1ef1-4ee1-be3f-9aa1753b99c0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9cac7b79-06e7-4878-b53e-93af1065fd40",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
