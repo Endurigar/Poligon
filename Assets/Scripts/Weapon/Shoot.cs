@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using Utilities;
 using Random = UnityEngine.Random;
 
-namespace Player
+namespace Weapon
 {
     public class Shoot : MonoBehaviour
     {
@@ -37,13 +37,13 @@ namespace Player
             {
                 return;
             }
+
             held = value.isPressed;
-            Debug.Log(held);
         }
 
         public void OnReload(InputValue value)
         {
-            if(onReload==false && bulletsCounter != 0)Reload();
+            if (onReload == false && bulletsCounter != 0) Reload();
         }
 
         private void Reload()
@@ -54,7 +54,7 @@ namespace Player
             paternIndex = 0;
             held = false;
         }
-        
+
         private void GenerateMagazine()
         {
             bullets = new Vector3[shootingPattern.magazine];
@@ -106,15 +106,17 @@ namespace Player
                 {
                     StopCoroutine(timer);
                 }
+
                 Reload();
                 yield break;
             }
+
             Containers.ActionContainer.OnShoot();
             bulletsCounter++;
             paternIndex++;
             yield return null;
         }
-        
+
         IEnumerator BulletsRoutine()
         {
             while (true)
@@ -130,6 +132,7 @@ namespace Player
                     yield return StartCoroutine(BulletSpawn());
                     yield return new WaitForSeconds(shootingPattern.timeBetweenBullets);
                 }
+
                 yield return new WaitForFixedUpdate();
             }
         }

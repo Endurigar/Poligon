@@ -1,7 +1,6 @@
 using UnityEngine;
 
-
-namespace Utilities
+namespace Weapon
 {
     [CreateAssetMenu(fileName = "ShootingPattern", menuName = "Settings/ShootingPattern")]
     public class ShootingPattern : ScriptableObject

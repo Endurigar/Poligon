@@ -1,37 +1,38 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Containers;
 using TMPro;
 using UnityEngine;
 
-public class Timer : MonoBehaviour
+namespace Utilities
 {
-    [SerializeField] private TextMeshProUGUI timerText;
-    private float maxTime = 60f;
-
-    private void Update()
+    public class Timer : MonoBehaviour
     {
-        TimeCounter();
-        AddListener();
-    }
+        [SerializeField] private TextMeshProUGUI timerText;
+        private float maxTime = 60f;
 
-    private void AddListener()
-    {
-        ActionContainer.OnReset += () => maxTime = 60f;
-    }
-
-    private void TimeCounter()
-    {
-        if (maxTime > 0)
+        private void Update()
         {
-            maxTime -= Time.deltaTime;
-            timerText.text = Math.Round(maxTime).ToString();
+            TimeCounter();
+            AddListener();
         }
-        else
+
+        private void AddListener()
         {
-            ActionContainer.OnTimeOut();
-            maxTime = 60f;
+            ActionContainer.OnReset += () => maxTime = 60f;
+        }
+
+        private void TimeCounter()
+        {
+            if (maxTime > 0)
+            {
+                maxTime -= Time.deltaTime;
+                timerText.text = Math.Round(maxTime).ToString();
+            }
+            else
+            {
+                ActionContainer.OnTimeOut();
+                maxTime = 60f;
+            }
         }
     }
 }

@@ -1,37 +1,38 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Containers;
 using UnityEngine;
 
-public class ModsChanger : MonoBehaviour
+namespace Utilities
 {
-    private RandomSpawnTarget randomSpawnTarget;
-    private SpawnMovingTargets spawnMovingTargets;
-    private void Start()
+    public class ModsChanger : MonoBehaviour
     {
-        randomSpawnTarget = gameObject.GetComponent<RandomSpawnTarget>();
-        spawnMovingTargets = gameObject.GetComponent<SpawnMovingTargets>();
-        AddListener();
-    }
+        private RandomSpawnTarget randomSpawnTarget;
+        private SpawnMovingTargets spawnMovingTargets;
 
-    private void AddListener()
-    {
-        ActionContainer.OnModeChanged += ModsChangeHandler;
-    }
-
-    private void ModsChangeHandler(ModsEnum modID)
-    {
-        switch (modID)
+        private void Start()
         {
-            case ModsEnum.StaticTargetMode:
-                randomSpawnTarget.enabled = true;
-                spawnMovingTargets.enabled = false;
-                break;
-            case ModsEnum.MovingTargetMode:
-                randomSpawnTarget.enabled = false;
-                spawnMovingTargets.enabled = true;
-                break;
+            randomSpawnTarget = gameObject.GetComponent<RandomSpawnTarget>();
+            spawnMovingTargets = gameObject.GetComponent<SpawnMovingTargets>();
+            AddListener();
+        }
+
+        private void AddListener()
+        {
+            ActionContainer.OnModeChanged += ModsChangeHandler;
+        }
+
+        private void ModsChangeHandler(ModsEnum modID)
+        {
+            switch (modID)
+            {
+                case ModsEnum.StaticTargetMode:
+                    randomSpawnTarget.enabled = true;
+                    spawnMovingTargets.enabled = false;
+                    break;
+                case ModsEnum.MovingTargetMode:
+                    randomSpawnTarget.enabled = false;
+                    spawnMovingTargets.enabled = true;
+                    break;
+            }
         }
     }
 }

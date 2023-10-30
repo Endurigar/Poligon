@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public enum ModsEnum
+namespace Utilities
 {
-    StaticTargetMode,
-    MovingTargetMode
+    public enum ModsEnum
+    {
+        StaticTargetMode,
+        MovingTargetMode
+    }
 }
